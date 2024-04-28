@@ -192,9 +192,13 @@ resource "aws_dynamodb_table" "tf_state_tables" {
    }
 }
 
-
 terraform {
-  backend "local" {
-    
+    backend "s3" {
+    bucket = "test-tf-state-bucket-eu"
+    key = "key/tfstate"
+    region = "eu-west-1"
+
+    dynamodb_table = "tf_state_table"
+    encrypt = true
   }
 }
