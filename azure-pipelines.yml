@@ -1,0 +1,11 @@
+trigger:
+  - master
+  - none
+pool:
+  vmImage: ubuntu-latest
+stages:
+  - stage: build
+    jobs:
+      - job: build_job
+        steps:
+          - script: echo "tested some pipeline"
